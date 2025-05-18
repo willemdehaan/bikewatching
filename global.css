@@ -1,3 +1,8 @@
+:root {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+}
+
 body {
   font: 100%/1.5 system-ui, sans-serif;
   display: flex;
@@ -10,31 +15,31 @@ body {
 }
 header {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
   gap: 1em;
-  padding: 1em;
-  width: 100%;
+  align-items: baseline;
+  margin-bottom: 1em;
 }
-
-.slider-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.slider-container label {
+header label {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
-#time-display,
-#any-time {
-  display: block;
-  font-size: 0.9em;
-  text-align: right;
+/* Legend styling */
+.legend {
+  display: flex;
+  gap: 1px;
+  margin-block: 1em;
 }
-
-#any-time {
-  color: #777;
-  font-style: italic;
+.legend > div {
+  flex: 1;
+  text-align: center;
+  padding: 0.5em 1em;
+  background: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  color: white;
 }
